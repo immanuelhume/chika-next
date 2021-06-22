@@ -1,24 +1,22 @@
 {
-  "name": "typescript-nextjs-starter",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
-  "version": "1.0.0",
+  "name": "chika-next",
+  "description": "Landing page for Chika bot.",
+  "version": "0.0.1",
   "private": true,
-  "author": "João Pedro Schmitz <hey@joaopedro.dev> (@jpedroschmitz)",
   "license": "MIT",
   "keywords": [
+    "chika",
     "nextjs",
-    "starter",
     "typescript"
   ],
   "scripts": {
-    "dev": "next",
+    "dev": "dotenv -e .env -- next",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "husky install",
-    "commit": "cz"
+    "postinstall": "husky install"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -27,20 +25,22 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/icons": "1.0.13",
+    "@chakra-ui/react": "1.6.4",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "framer-motion": "^4",
     "next": "11.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "12.1.4",
-    "@commitlint/config-conventional": "12.1.4",
     "@types/node": "14.17.3",
     "@types/react": "17.0.11",
     "@types/react-dom": "17.0.7",
     "@typescript-eslint/eslint-plugin": "4.27.0",
     "@typescript-eslint/parser": "4.27.0",
-    "commitizen": "4.2.4",
-    "cz-conventional-changelog": "3.3.0",
+    "dotenv-cli": "4.0.0",
     "eslint": "7.28.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-next": "11.0.0",
@@ -55,10 +55,5 @@
     "lint-staged": "11.0.0",
     "prettier": "2.3.1",
     "typescript": "4.3.4"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
   }
 }
