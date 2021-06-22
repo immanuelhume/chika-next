@@ -21,8 +21,8 @@ export const HeroContent: React.FC = () => (
     bgColor="blackAlpha.700"
   >
     <VStack spacing={{ base: 4, md: 12 }} alignItems="start">
-      <Heading color="gray.200">tbh, Hayasaka is best girl</Heading>
-      <Heading color="gray.200">do check out this bot anyway</Heading>
+      <Heading color="whiteAlpha.900">tbh, Hayasaka is best girl</Heading>
+      <Heading color="whiteAlpha.900">do check out this bot anyway</Heading>
       <NextLink href="/commands">
         <ChikaButton size={useBreakpointValue({ base: `md`, md: `lg` })}>
           See Chika&apos;s commands
@@ -32,7 +32,7 @@ export const HeroContent: React.FC = () => (
         colorScheme="whiteAlpha"
         rightIcon={<LinkIcon />}
         as={Link}
-        href="https://discord.com/oauth2/authorize?client_id=843481025459519528&permissions=3145728&scope=bot"
+        href={process.env.INVITE_URL}
         display={{ base: `flex`, md: `none` }}
       >
         Invite Chika

@@ -16,7 +16,8 @@
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "gen": "graphql-codegen -r dotenv/config"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -25,16 +26,22 @@
     ]
   },
   "dependencies": {
+    "@apollo/client": "3.3.20",
     "@chakra-ui/icons": "1.0.13",
     "@chakra-ui/react": "1.6.4",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": "^4",
+    "graphql": "15.5.1",
     "next": "11.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.21.5",
+    "@graphql-codegen/typescript": "1.22.3",
+    "@graphql-codegen/typescript-operations": "1.18.2",
+    "@graphql-codegen/typescript-react-apollo": "2.2.7",
     "@types/node": "14.17.3",
     "@types/react": "17.0.11",
     "@types/react-dom": "17.0.7",

@@ -13,7 +13,7 @@ import { ChikaLogo } from '../atoms/ChikaLogo';
 import { ChikaButton } from '../molecules/ChikaButton';
 
 export const Navbar: React.FC = () => (
-  <Box bgColor="gray.700" color="gray.200">
+  <Box bgColor="gray.700" color="whiteAlpha.900">
     <Container
       maxW="container.lg"
       as={Flex}
@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => (
         <ChikaButton
           rightIcon={<LinkIcon />}
           as={Link}
-          href="https://discord.com/oauth2/authorize?client_id=843481025459519528&permissions=3145728&scope=bot"
+          href={process.env.INVITE_URL}
         >
           Invite
         </ChikaButton>
