@@ -1,4 +1,4 @@
-import { Badge, Tooltip } from '@chakra-ui/react';
+import { Code, Tooltip } from '@chakra-ui/react';
 import React from 'react';
 import { Argument } from '../../graphql/generated/types';
 
@@ -11,17 +11,17 @@ export const ArgInfo: React.FC<IArgProps> = ({ arg }) => {
   if (optional) {
     return (
       <Tooltip label="This is an optional argument">
-        <Badge colorScheme="gray" variant="subtle">
+        <Code colorScheme="gray" variant="subtle">
           {name}
-        </Badge>
+        </Code>
       </Tooltip>
     );
   }
   return (
     <Tooltip label="This argument is required">
-      <Badge colorScheme="pink" variant="subtle">
+      <Code colorScheme="pink" variant="subtle">
         {name}
-      </Badge>
+      </Code>
     </Tooltip>
   );
 };

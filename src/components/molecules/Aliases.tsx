@@ -6,14 +6,12 @@ interface IAliasesProps {
 }
 
 export const Aliases: React.FC<IAliasesProps> = ({ aliases }) => (
-  <>
-    <Text>Aliases</Text>
-    <HStack>
-      {aliases.map((alias) => (
-        <Tag key={alias} colorScheme="pink">
-          {alias}
-        </Tag>
-      ))}
-    </HStack>
-  </>
+  <HStack>
+    <Text>Aliases:</Text>
+    {aliases.map((alias) => (
+      <Tag key={alias} colorScheme="pink">
+        {alias}
+      </Tag>
+    ))}
+  </HStack>
 );

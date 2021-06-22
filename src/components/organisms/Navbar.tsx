@@ -13,7 +13,7 @@ import { ChikaLogo } from '../atoms/ChikaLogo';
 import { ChikaButton } from '../molecules/ChikaButton';
 
 export const Navbar: React.FC = () => (
-  <Box bgColor="gray.700" color="whiteAlpha.900">
+  <Box bgColor="gray.700" color="whiteAlpha.900" w="full">
     <Container
       maxW="container.lg"
       as={Flex}

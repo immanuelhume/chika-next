@@ -1,4 +1,4 @@
-import { Container, Wrap } from '@chakra-ui/react';
+import { Container, VStack } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import React from 'react';
 import { HeroContainer } from '../components/molecules/HeroContainer';
@@ -38,8 +38,8 @@ const Commands: React.FC<ICommandsProps> = ({ commands }) => (
   <>
     <Navbar />
     <HeroContainer h="fit-content">
-      <Container maxW="container.lg">
-        <Wrap justify="center">
+      <Container maxW="container.lg" backgroundColor="blackAlpha.700">
+        <VStack spacing={{ md: 8 }}>
           {Object.keys(commands).map((category) => (
             <CommandGroup
               key={category}
@@ -47,7 +47,7 @@ const Commands: React.FC<ICommandsProps> = ({ commands }) => (
               category={toStartCase(category)}
             />
           ))}
-        </Wrap>
+        </VStack>
       </Container>
     </HeroContainer>
   </>

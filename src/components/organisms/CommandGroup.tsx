@@ -13,13 +13,12 @@ export const CommandGroup: React.FC<ICommandGroupProps> = ({
   commands,
 }) => (
   <Box
-    borderColor="pink.700"
+    borderColor="pink.7=300"
     borderWidth="thin"
-    backgroundColor="blackAlpha.900"
     color="whiteAlpha.900"
-    w={{ md: `md` }}
     padding={{ md: 4 }}
-    borderRadius="2xl"
+    borderRadius="lg"
+    w="full"
   >
     <Heading size="lg">{category}</Heading>
     <Divider marginTop={4} marginBottom={4} />
