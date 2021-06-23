@@ -1,21 +1,21 @@
-import { VStack, Code, Text } from '@chakra-ui/react';
+import { VStack, Code, Text, Box } from '@chakra-ui/react';
 import React from 'react';
 
 export function CommandsIntro() {
   return (
     <VStack>
-      <Text color="whiteAlpha.800">
+      <Box color="whiteAlpha.800">
         Chika&apos;s default prefix is{` `}
-        <Text fontWeight="bold" display="inline">
+        <Text fontWeight="bold" display="inline" color="whiteAlpha.800">
           ck;
         </Text>
         {` `}
         and is customizable per-server.
-      </Text>
-      <Text color="whiteAlpha.800">
+      </Box>
+      <Box color="whiteAlpha.800">
         A <Code colorScheme="pink">pink</Code> tag indicates a required
         argument, and a <Code>gray</Code> tag indicates an optional one.
-      </Text>
+      </Box>
     </VStack>
   );
 }

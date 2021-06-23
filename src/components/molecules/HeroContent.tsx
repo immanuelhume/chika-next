@@ -49,14 +49,14 @@ export const HeroContent: React.FC = () => (
           icon={<FaGithubAlt fontSize={28} />}
           variant="solid"
           as={Link}
-          href={process.env.GITHUB_URL}
+          href={process.env.NEXT_PUBLIC_GITHUB_URL}
         />
       </Wrap>
       <Button
         colorScheme="whiteAlpha"
         rightIcon={<LinkIcon />}
         as={Link}
-        href={process.env.INVITE_URL}
+        href={process.env.NEXT_PUBLIC_INVITE_URL}
         size="md"
         display={{ base: `flex`, md: `none` }}
       >

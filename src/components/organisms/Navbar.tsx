@@ -42,7 +42,7 @@ export const Navbar: React.FC = () => (
         <ChikaButton
           rightIcon={<LinkIcon />}
           as={Link}
-          href={process.env.INVITE_URL}
+          href={process.env.NEXT_PUBLIC_INVITE_URL}
         >
           Invite
         </ChikaButton>
