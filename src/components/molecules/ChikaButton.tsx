@@ -5,7 +5,12 @@ export const ChikaButton: React.FC<React.ComponentProps<typeof Button>> = ({
   children,
   ...props
 }) => (
-  <Button colorScheme="pink" {...props}>
+  <Button
+    background="pink.300"
+    _hover={{ background: `pink.400` }}
+    color="whiteAlpha.900"
+    {...props}
+  >
     {children}
   </Button>
 );

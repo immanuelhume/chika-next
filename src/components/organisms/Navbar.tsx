@@ -1,6 +1,7 @@
 import { LinkIcon } from '@chakra-ui/icons';
 import {
   Box,
+  Button,
   ButtonGroup,
   Container,
   Flex,
@@ -15,7 +16,7 @@ import { ChikaButton } from '../molecules/ChikaButton';
 export const Navbar: React.FC = () => (
   <Box bgColor="gray.700" color="whiteAlpha.900" w="full">
     <Container
-      maxW="container.lg"
+      maxW="container.xl"
       as={Flex}
       flexDir="row"
       justifyContent="flex-end"
@@ -27,15 +28,16 @@ export const Navbar: React.FC = () => (
         marginRight="auto"
         size={useBreakpointValue({ base: `lg`, md: `xl` })}
       />
-      <ButtonGroup>
+      <ButtonGroup spacing={4}>
         <NextLink href="/commands">
-          <ChikaButton
+          <Button
             variant="outline"
-            colorScheme="whiteAlpha"
+            colorScheme="gray"
             display={{ base: `none`, md: `block` }}
+            _hover={{ background: `gray.600` }}
           >
             Commands
-          </ChikaButton>
+          </Button>
         </NextLink>
         <ChikaButton
           rightIcon={<LinkIcon />}

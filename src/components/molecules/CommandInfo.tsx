@@ -1,4 +1,5 @@
-import { HStack, Text, VStack } from '@chakra-ui/react';
+/* eslint-disable @typescript-eslint/no-use-before-define */
+import { Td, Text, Tr, VStack, Wrap } from '@chakra-ui/react';
 import React from 'react';
 import { Command } from '../../graphql/generated/types';
 import { ArgInfo } from '../atoms/ArgInfo';
@@ -8,26 +9,52 @@ interface ICommandProps {
   command: Command;
 }
 
-export const CommandInfo: React.FC<ICommandProps> = ({ command }) => {
+export const CommandInfo: React.FC<ICommandProps> = ({ command }) => (
+  <>
+    <CommandInfoBase command={command} />
+    <CommandInfoMd command={command} />
+  </>
+);
+
+function CommandInfoBase({ command }: ICommandProps) {
   const { name, description, aliases, args } = command;
   return (
-    <VStack
-      alignItems="flex-start"
-      borderLeftWidth="thick"
-      borderLeftColor="pink.300"
-      borderRadius={{ md: `sm` }}
-      paddingLeft={{ md: 2 }}
-    >
-      <HStack>
-        <Text fontWeight="black" color="pink.200">
-          ck;{name}
-        </Text>
-        {args?.map((arg) => (
-          <ArgInfo arg={arg} key={arg.id} />
-        ))}
-      </HStack>
-      <Text>{description}</Text>
-      {!!aliases?.length && <Aliases aliases={aliases} />}
-    </VStack>
+    <Tr display={{ base: `table-row`, md: `none` }}>
+      <Td paddingLeft={0}>
+        <VStack align="start">
+          <Wrap>
+            <Text fontWeight="bold">{name}</Text>
+            {args?.map((arg) => (
+              <ArgInfo key={arg.id} arg={arg} />
+            ))}
+          </Wrap>
+          <Text>{description}</Text>
+          {!!aliases?.length && (
+            <Wrap align="center">
+              <Text>Aliases</Text>
+              <Aliases aliases={aliases} />
+            </Wrap>
+          )}
+        </VStack>
+      </Td>
+    </Tr>
   );
-};
+}
+
+function CommandInfoMd({ command }: ICommandProps) {
+  const { name, description, aliases, args } = command;
+  return (
+    <Tr display={{ base: `none`, md: `table-row` }}>
+      <Td w="2xs">
+        <Wrap>
+          <Text>{name}</Text>
+          {args?.map((arg) => (
+            <ArgInfo key={arg.id} arg={arg} />
+          ))}
+        </Wrap>
+      </Td>
+      <Td>{description}</Td>
+      <Td w="3xs">{!!aliases?.length && <Aliases aliases={aliases} />}</Td>
+    </Tr>
+  );
+}

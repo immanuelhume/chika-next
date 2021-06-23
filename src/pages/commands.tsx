@@ -1,7 +1,8 @@
-import { Container, VStack } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import React from 'react';
-import { HeroContainer } from '../components/molecules/HeroContainer';
+import { HSpace } from '../components/atoms/HSpace';
+import { CommandsIntro } from '../components/molecules/CommandsIntro';
 import { CommandGroup } from '../components/organisms/CommandGroup';
 import { Navbar } from '../components/organisms/Navbar';
 import client from '../graphql/apollo-client';
@@ -37,19 +38,20 @@ interface ICommandsProps {
 const Commands: React.FC<ICommandsProps> = ({ commands }) => (
   <>
     <Navbar />
-    <HeroContainer h="fit-content">
-      <Container maxW="container.lg" backgroundColor="blackAlpha.700">
-        <VStack spacing={{ md: 8 }}>
-          {Object.keys(commands).map((category) => (
-            <CommandGroup
-              key={category}
-              commands={commands[category as CommandCategory]}
-              category={toStartCase(category)}
-            />
-          ))}
-        </VStack>
+    <Box backgroundColor="gray.700">
+      <HSpace size="md" />
+      <Container maxW="container.lg">
+        <CommandsIntro />
+        <HSpace size="md" />
+        {Object.keys(commands).map((category) => (
+          <CommandGroup
+            key={category}
+            commands={commands[category as CommandCategory]}
+            category={toStartCase(category)}
+          />
+        ))}
       </Container>
-    </HeroContainer>
+    </Box>
   </>
 );
 

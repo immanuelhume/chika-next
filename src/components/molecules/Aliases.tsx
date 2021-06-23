@@ -1,4 +1,4 @@
-import { HStack, Tag, Text } from '@chakra-ui/react';
+import { Tag, Wrap } from '@chakra-ui/react';
 import React from 'react';
 
 interface IAliasesProps {
@@ -6,12 +6,11 @@ interface IAliasesProps {
 }
 
 export const Aliases: React.FC<IAliasesProps> = ({ aliases }) => (
-  <HStack>
-    <Text>Aliases:</Text>
+  <Wrap>
     {aliases.map((alias) => (
       <Tag key={alias} colorScheme="pink">
         {alias}
       </Tag>
     ))}
-  </HStack>
+  </Wrap>
 );
