@@ -1,10 +1,14 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions =  {}
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]: Maybe<T[SubKey]> };
+const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -37,7 +41,7 @@ export enum CommandCategory {
   Fun = 'FUN',
   Games = 'GAMES',
   Music = 'MUSIC',
-  Utility = 'UTILITY'
+  Utility = 'UTILITY',
 }
 
 export type Query = {
@@ -45,36 +49,37 @@ export type Query = {
   getAllCommands: Array<Command>;
 };
 
-export type GetAllCommandsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllCommandsQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type GetAllCommandsQuery = (
-  { __typename?: 'Query' }
-  & { getAllCommands: Array<(
-    { __typename?: 'Command' }
-    & Pick<Command, 'name' | 'aliases' | 'description' | 'category'>
-    & { args?: Maybe<Array<(
-      { __typename?: 'Argument' }
-      & Pick<Argument, 'name' | 'optional'>
-    )>> }
-  )> }
-);
-
+export type GetAllCommandsQuery = { __typename?: 'Query' } & {
+  getAllCommands: Array<
+    { __typename?: 'Command' } & Pick<
+      Command,
+      'name' | 'aliases' | 'description' | 'category'
+    > & {
+        args?: Maybe<
+          Array<
+            { __typename?: 'Argument' } & Pick<Argument, 'name' | 'optional'>
+          >
+        >;
+      }
+  >;
+};
 
 export const GetAllCommandsDocument = gql`
-    query getAllCommands {
-  getAllCommands {
-    name
-    aliases
-    description
-    category
-    args {
+  query getAllCommands {
+    getAllCommands {
       name
-      optional
+      aliases
+      description
+      category
+      args {
+        name
+        optional
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetAllCommandsQuery__
@@ -91,14 +96,37 @@ export const GetAllCommandsDocument = gql`
  *   },
  * });
  */
-export function useGetAllCommandsQuery(baseOptions?: Apollo.QueryHookOptions<GetAllCommandsQuery, GetAllCommandsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetAllCommandsQuery, GetAllCommandsQueryVariables>(GetAllCommandsDocument, options);
-      }
-export function useGetAllCommandsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAllCommandsQuery, GetAllCommandsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetAllCommandsQuery, GetAllCommandsQueryVariables>(GetAllCommandsDocument, options);
-        }
-export type GetAllCommandsQueryHookResult = ReturnType<typeof useGetAllCommandsQuery>;
-export type GetAllCommandsLazyQueryHookResult = ReturnType<typeof useGetAllCommandsLazyQuery>;
-export type GetAllCommandsQueryResult = Apollo.QueryResult<GetAllCommandsQuery, GetAllCommandsQueryVariables>;
+export function useGetAllCommandsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetAllCommandsQuery,
+    GetAllCommandsQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetAllCommandsQuery, GetAllCommandsQueryVariables>(
+    GetAllCommandsDocument,
+    options,
+  );
+}
+export function useGetAllCommandsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetAllCommandsQuery,
+    GetAllCommandsQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetAllCommandsQuery, GetAllCommandsQueryVariables>(
+    GetAllCommandsDocument,
+    options,
+  );
+}
+export type GetAllCommandsQueryHookResult = ReturnType<
+  typeof useGetAllCommandsQuery
+>;
+export type GetAllCommandsLazyQueryHookResult = ReturnType<
+  typeof useGetAllCommandsLazyQuery
+>;
+export type GetAllCommandsQueryResult = Apollo.QueryResult<
+  GetAllCommandsQuery,
+  GetAllCommandsQueryVariables
+>;

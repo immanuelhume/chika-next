@@ -23,9 +23,11 @@ function CommandInfoBase({ command }: ICommandProps) {
       <Td paddingLeft={0}>
         <VStack align="start">
           <Wrap>
-            <Text fontWeight="bold">{name}</Text>
+            <Text fontWeight="bold" key={name}>
+              {name}
+            </Text>
             {args?.map((arg) => (
-              <ArgInfo key={arg.id} arg={arg} />
+              <ArgInfo arg={arg} key={arg.id} />
             ))}
           </Wrap>
           <Text>{description}</Text>
