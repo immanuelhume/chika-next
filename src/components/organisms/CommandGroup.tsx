@@ -1,6 +1,7 @@
 import { Box, Heading, Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 import React from 'react';
 import { Command } from '../../graphql/generated/types';
+import { ThGrayBorder } from '../atoms/ThGrayBorder';
 import { CommandInfo } from '../molecules/CommandInfo';
 
 interface ICommandGroupProps {
@@ -19,9 +20,9 @@ export const CommandGroup: React.FC<ICommandGroupProps> = ({
     <Table size="md">
       <Thead>
         <Tr display={{ base: `none`, md: `table-row` }}>
-          <Th>Command</Th>
-          <Th>Wat it do</Th>
-          <Th>Aliases</Th>
+          <ThGrayBorder>Command</ThGrayBorder>
+          <ThGrayBorder>Wat it do</ThGrayBorder>
+          <ThGrayBorder>Aliases</ThGrayBorder>
         </Tr>
       </Thead>
       <Tbody>

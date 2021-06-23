@@ -32,7 +32,7 @@ export const HeroContent: React.FC = () => (
           Hayasaka
         </Text>
         {` `}
-        is best girl
+        is best girl.
       </Heading>
       <Heading color="whiteAlpha.900">do check out this bot anyway!</Heading>
       <Wrap spacing={{ base: 4 }}>

@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { Td, Text, Tr, VStack, Wrap } from '@chakra-ui/react';
+import { Text, Tr, VStack, Wrap } from '@chakra-ui/react';
 import React from 'react';
 import { Command } from '../../graphql/generated/types';
 import { ArgInfo } from '../atoms/ArgInfo';
 import { Aliases } from './Aliases';
+import { TdGrayBorder } from '../atoms/TdGrayBorder';
 
 interface ICommandProps {
   command: Command;
@@ -20,7 +21,7 @@ function CommandInfoBase({ command }: ICommandProps) {
   const { name, description, aliases, args } = command;
   return (
     <Tr display={{ base: `table-row`, md: `none` }}>
-      <Td paddingLeft={0}>
+      <TdGrayBorder paddingLeft={0}>
         <VStack align="start">
           <Wrap>
             <Text fontWeight="bold" key={name}>
@@ -38,7 +39,7 @@ function CommandInfoBase({ command }: ICommandProps) {
             </Wrap>
           )}
         </VStack>
-      </Td>
+      </TdGrayBorder>
     </Tr>
   );
 }
@@ -47,16 +48,18 @@ function CommandInfoMd({ command }: ICommandProps) {
   const { name, description, aliases, args } = command;
   return (
     <Tr display={{ base: `none`, md: `table-row` }}>
-      <Td w="2xs">
+      <TdGrayBorder w="2xs">
         <Wrap>
           <Text>{name}</Text>
           {args?.map((arg) => (
             <ArgInfo key={arg.id} arg={arg} />
           ))}
         </Wrap>
-      </Td>
-      <Td>{description}</Td>
-      <Td w="3xs">{!!aliases?.length && <Aliases aliases={aliases} />}</Td>
+      </TdGrayBorder>
+      <TdGrayBorder>{description}</TdGrayBorder>
+      <TdGrayBorder w="3xs">
+        {!!aliases?.length && <Aliases aliases={aliases} />}
+      </TdGrayBorder>
     </Tr>
   );
 }
