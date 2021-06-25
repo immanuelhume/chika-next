@@ -1,5 +1,6 @@
 import { Box, Container } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import React from 'react';
 import { HSpace } from '../components/atoms/HSpace';
 import { CommandsIntro } from '../components/molecules/CommandsIntro';
@@ -37,6 +38,9 @@ interface ICommandsProps {
 
 const Commands: React.FC<ICommandsProps> = ({ commands }) => (
   <>
+    <Head>
+      <title>Commands</title>
+    </Head>
     <Navbar />
     <Box backgroundColor="gray.700">
       <HSpace size="md" />

@@ -1202,6 +1202,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/open-sans@4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.4.5.tgz#07b31617e62ed753c94cabcf552ebaed4de497ce"
+  integrity sha512-PDWEvO1/p8OAHHiielvEmwGXHNbZhrZn96ojV7+/mKgFu+cCUcGVJl9sFs97rCWLe3hKQsYLEsJs4EiLjwa+UQ==
+
+"@fontsource/rubik@4.4.5":
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/rubik/-/rubik-4.4.5.tgz#b331e8d6370394c37eed8c2b4313e78a8a4c030a"
+  integrity sha512-a9sYAHbB1g04Vux8Wv1iKKHNM86gGWDy/YrFA0hArG1nPOrYOijzl9DfrC9rQMeah97ZQmTQpRvnUY712+MFKA==
+
 "@graphql-codegen/cli@1.21.5":
   version "1.21.5"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-1.21.5.tgz#b9041553747cfb2dee7c3473a2e2461ec3e7ada5"

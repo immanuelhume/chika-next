@@ -31,6 +31,8 @@
     "@chakra-ui/react": "1.6.4",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/open-sans": "4.4.5",
+    "@fontsource/rubik": "4.4.5",
     "framer-motion": "^4",
     "graphql": "15.5.1",
     "next": "11.0.0",
