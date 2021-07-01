@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return acc;
   }, {} as Record<CommandCategory, Command[]>);
 
-  return { props: { commands }, revalidate: 3600 };
+  return { props: { commands } };
 };
 
 interface ICommandsProps {
