@@ -19,15 +19,12 @@ export const getStaticProps: GetStaticProps = async () => {
     query: GetAllCommandsDocument,
   });
 
-  const commands = data.getAllCommands.reduce(
-    (acc: Record<CommandCategory, Command[]>, curr: Command) => {
-      const { category } = curr;
-      if (!acc[category]) acc[category] = [];
-      acc[category].push(curr);
-      return acc;
-    },
-    {} as Record<CommandCategory, Command[]>,
-  );
+  const commands = data.getAllCommands.reduce((acc, curr) => {
+    const { category } = curr;
+    if (!acc[category]) acc[category] = [];
+    acc[category].push(curr as Command);
+    return acc;
+  }, {} as Record<CommandCategory, Command[]>);
 
   return { props: { commands } };
 };

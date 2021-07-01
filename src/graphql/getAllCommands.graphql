@@ -1,10 +1,12 @@
 query getAllCommands {
   getAllCommands {
+    id
     name
     aliases
     description
     category
     args {
+      id
       name
       optional
     }

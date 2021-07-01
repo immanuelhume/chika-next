@@ -1,5 +1,4 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -8,7 +7,6 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
   { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
   { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -55,78 +53,61 @@ export type GetAllCommandsQuery = { __typename?: 'Query' } & {
   getAllCommands: Array<
     { __typename?: 'Command' } & Pick<
       Command,
-      'name' | 'aliases' | 'description' | 'category'
+      'id' | 'name' | 'aliases' | 'description' | 'category'
     > & {
         args?: Maybe<
           Array<
-            { __typename?: 'Argument' } & Pick<Argument, 'name' | 'optional'>
+            { __typename?: 'Argument' } & Pick<
+              Argument,
+              'id' | 'name' | 'optional'
+            >
           >
         >;
       }
   >;
 };
 
-export const GetAllCommandsDocument = gql`
-  query getAllCommands {
-    getAllCommands {
-      name
-      aliases
-      description
-      category
-      args {
-        name
-        optional
-      }
-    }
-  }
-`;
-
-/**
- * __useGetAllCommandsQuery__
- *
- * To run a query within a React component, call `useGetAllCommandsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAllCommandsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetAllCommandsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetAllCommandsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAllCommandsQuery,
-    GetAllCommandsQueryVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetAllCommandsQuery, GetAllCommandsQueryVariables>(
-    GetAllCommandsDocument,
-    options,
-  );
-}
-export function useGetAllCommandsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllCommandsQuery,
-    GetAllCommandsQueryVariables
-  >,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetAllCommandsQuery, GetAllCommandsQueryVariables>(
-    GetAllCommandsDocument,
-    options,
-  );
-}
-export type GetAllCommandsQueryHookResult = ReturnType<
-  typeof useGetAllCommandsQuery
->;
-export type GetAllCommandsLazyQueryHookResult = ReturnType<
-  typeof useGetAllCommandsLazyQuery
->;
-export type GetAllCommandsQueryResult = Apollo.QueryResult<
-  GetAllCommandsQuery,
-  GetAllCommandsQueryVariables
->;
+export const GetAllCommandsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'getAllCommands' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'getAllCommands' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'aliases' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'description' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'category' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'args' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'optional' },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<GetAllCommandsQuery, GetAllCommandsQueryVariables>;
