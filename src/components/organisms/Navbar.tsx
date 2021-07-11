@@ -1,6 +1,5 @@
 import { LinkIcon } from '@chakra-ui/icons';
 import {
-  Badge,
   Box,
   Button,
   ButtonGroup,
