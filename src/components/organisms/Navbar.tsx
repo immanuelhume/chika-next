@@ -30,16 +30,17 @@ export const Navbar: React.FC = () => (
         size={useBreakpointValue({ base: `lg`, md: `xl` })}
       />
       <ButtonGroup spacing={2} alignItems="center">
-        <Button
-          variant="ghost"
-          colorScheme="gray"
-          display={{ base: `none`, md: `block` }}
-          _hover={{ background: `gray.600` }}
-          href={process.env.NEXT_PUBLIC_DASHBOARD_URL}
-        >
-          Dashboard
-          <AlphaBadge />
-        </Button>
+        <NextLink href={process.env.NEXT_PUBLIC_DASHBOARD_URL}>
+          <Button
+            variant="ghost"
+            colorScheme="gray"
+            display={{ base: `none`, md: `block` }}
+            _hover={{ background: `gray.600` }}
+          >
+            Dashboard
+            <AlphaBadge />
+          </Button>
+        </NextLink>
         <NextLink href="/commands">
           <Button
             variant="ghost"
