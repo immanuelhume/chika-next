@@ -1,6 +1,5 @@
 import { LinkIcon } from '@chakra-ui/icons';
 import {
-  Badge,
   Box,
   Button,
   ButtonGroup,
@@ -31,17 +30,16 @@ export const Navbar: React.FC = () => (
         size={useBreakpointValue({ base: `lg`, md: `xl` })}
       />
       <ButtonGroup spacing={2} alignItems="center">
-        <NextLink href={process.env.NEXT_PUBLIC_DASHBOARD_URL}>
-          <Button
-            variant="ghost"
-            colorScheme="gray"
-            display={{ base: `none`, md: `block` }}
-            _hover={{ background: `gray.600` }}
-          >
-            Dashboard
-            <AlphaBadge />
-          </Button>
-        </NextLink>
+        <Button
+          variant="ghost"
+          colorScheme="gray"
+          display={{ base: `none`, md: `block` }}
+          _hover={{ background: `gray.600` }}
+          href={process.env.NEXT_PUBLIC_DASHBOARD_URL}
+        >
+          Dashboard
+          <AlphaBadge />
+        </Button>
         <NextLink href="/commands">
           <Button
             variant="ghost"

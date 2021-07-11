@@ -57,7 +57,7 @@ export const HeroContent: React.FC = () => (
         colorScheme="whiteAlpha"
         rightIcon={<ExternalLinkIcon />}
         as={Link}
-        href={process.env.NEXT_PUBLIC_INVITE_URL}
+        href={process.env.NEXT_PUBLIC_DASHBOARD_URL}
         size="md"
         display={{ base: `flex`, md: `none` }}
       >
