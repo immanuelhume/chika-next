@@ -1,4 +1,4 @@
-import { LinkIcon } from '@chakra-ui/icons';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import {
   Button,
   Container,
@@ -14,6 +14,7 @@ import {
 import NextLink from 'next/link';
 import React from 'react';
 import { FaGithubAlt } from 'react-icons/fa';
+import { AlphaBadge } from '../atoms/AlphaBadge';
 import { ChikaButton } from './ChikaButton';
 
 export const HeroContent: React.FC = () => (
@@ -54,13 +55,14 @@ export const HeroContent: React.FC = () => (
       </Wrap>
       <Button
         colorScheme="whiteAlpha"
-        rightIcon={<LinkIcon />}
+        rightIcon={<ExternalLinkIcon />}
         as={Link}
         href={process.env.NEXT_PUBLIC_INVITE_URL}
         size="md"
         display={{ base: `flex`, md: `none` }}
       >
-        Invite Chika
+        Dashboard
+        <AlphaBadge top={-2} right={-3} />
       </Button>
     </VStack>
   </Container>
